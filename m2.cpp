@@ -28,7 +28,7 @@ int main()
 		printf("\nOption? ");
 
 		userSelect = getNum();
-		if (userSelect == -1)
+		if (userSelect != 1,2,3,4)
 		{
 			printf("Invalid entry\n");
 			continue;
