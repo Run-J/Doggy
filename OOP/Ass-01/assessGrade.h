@@ -1,0 +1,29 @@
+//Filename: assessGrade.h
+//Project: A-01: Overloaded Function
+//Programmer: Run Ji
+//First version: 01/09/2024
+// Description: This header file contains several function prototypes and preprocessing instructions
+
+#pragma once
+#pragma warning (disable:4996)
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+#define FALSE -1
+#define SUCCESS 0
+#define MAXSIZECARACTERS 101
+#define FIVEASSIGNMENT 5
+
+typedef struct
+{
+	const char* grade;
+	const char* decription;
+}charGradeDescription;
+
+char* extractFileName(char* userInput);
+int parseUserInput(char* userInput);
+void assessGrade(double userInput);
+int assessGrade(int unserInput[FIVEASSIGNMENT]);
+int assessGrade(char* userInput);
