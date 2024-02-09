@@ -136,14 +136,7 @@ int assessGrade(int userInput[FIVEASSIGNMENT])
 	}
 
 	sum = sum / FIVEASSIGNMENT; // each of five assignments worth 20% each,
-	if (sum >= 54.50 && sum <= 100.0)
-	{
-		printf("Student achieved %.2lf%% which is a PASS condition.\n", sum);
-	}
-	else if (sum < 54.50 && sum >= 0.0)
-	{
-		printf("Student achieved %.2lf%% which is a FAIL condition.\n", sum);
-	}
+	assessGrade(sum);
 
 	return 0;
 }
@@ -165,29 +158,38 @@ int assessGrade(char* userInput)
 {
 	charGradeDescription description[]=
 	{
-		{"A+", "Student achieved 95.00 % which is a PASS condition.\n"},
-		{"A", "Student achieved 85.00 % which is a PASS condition.\n"},
-		{"B+", "Student achieved 77.00 % which is a PASS condition.\n"},
-		{"B", "Student achieved 72.00 % which is a PASS condition.\n"},
-		{"C+", "Student achieved 67.00 % which is a PASS condition.\n"},
-		{"C", "Student achieved 62.00 % which is a PASS condition.\n"},
-		{"D", "Student achieved 57.00 % which is a PASS condition.\n"},
-		{"F", "Student achieved 50.00 % which is a FAIL condition.\n"},
-		//special situations
-		{"I", "Student has Special Situation : I (Incomplete.)\n"},
-		{"Q", "Student has Special Situation : Q (Withdrawal After Drop/Refund Date.)\n"},
-		{"AU", "Student has Special Situation : AU (Audit Condition.)\n"},
-		{"DNA", "Student has Special Situation : DNA (Did Not Attend.)\n"},
-		{"I/P", "Student has Special Situation : I/P (In Process.)\n"},
+		{"A+", "", 95.00},
+		{"A", "", 85.00},
+		{"B+", "", 77.00},
+		{"B", "", 72.00},
+		{"C+", "", 67.00},
+		{"C", "", 62.00},
+		{"D", "", 57.00},
+		{"F", "", 50.00},
+		// special situations
+		{"I", "Student has Special Situation : I (Incomplete.)\n", 0},
+		{"Q", "Student has Special Situation : Q (Withdrawal After Drop/Refund Date.)\n", 0},
+		{"AU", "Student has Special Situation : AU (Audit Condition.)\n", 0},
+		{"DNA", "Student has Special Situation : DNA (Did Not Attend.)\n", 0},
+		{"I/P", "Student has Special Situation : I/P (In Process.)\n", 0},
 		// end sign
-		{"", ""}
+		{"", NULL, 0}
 	};
 
 	for (int i = 0; description[i].grade != ""; i++)
 	{
 		if (strcmp(description[i].grade, userInput) == 0)
 		{
+			if (strcmp(userInput, "I") == 0 || strcmp(userInput, "Q") == 0 ||
+			    strcmp(userInput, "AU") == 0 || strcmp(userInput, "DNA") == 0 ||
+			    strcmp(userInput, "I/P") == 0)
+			{
 			printf("%s", description[i].decription);
+			}
+			else
+			{
+			assessGrade(description[i].percentage);
+			}
 			return SUCCESS;
 		}
 	}
@@ -210,11 +212,11 @@ int assessGrade(char* userInput)
 
 void assessGrade(double userInput)
 {
-	if (userInput >= 54.50 && userInput <= 100.0)
+	if (userInput >= PASSMARK && userInput <= MAXIMUMMARK)
 	{
 		printf("Student achieved %.2lf %% which is a PASS condition.\n", userInput);
 	}
-	else if (userInput < 54.50 && userInput >= 0.0)
+	else if (userInput < PASSMARK && userInput >= MINIMUMMARK)
 	{
 		printf("Student achieved %.2lf %% which is a FAIL condition.\n", userInput);
 	}
