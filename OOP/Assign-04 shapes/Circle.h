@@ -22,7 +22,7 @@ public:
 	Circle(void);
 
 	// destructor
-	~Circle(void);
+	virtual ~Circle(void);
 
 	// accessor
 	float GetRadius(void);
@@ -32,9 +32,9 @@ public:
 
 	// methods
 	void Show(void);
-	float Perimeter(void) const; // calculate perimeter
-	float Area(void) const override; // calculate area
-	float OverallDimension(void) const override;
+	virtual float Perimeter(void) const; // calculate perimeter
+	virtual float Area(void) const override; // calculate area
+	virtual float OverallDimension(void) const override;
 };
 
 #endif CIRCLEH

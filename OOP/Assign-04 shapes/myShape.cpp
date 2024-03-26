@@ -11,6 +11,7 @@
 #include "Square.h"
 #include <string.h>
 #include <stdlib.h>
+#include <new.h>
 
 #define USER_CHARACTERS_INPUT 15
 #define NUMBER_BUFFER 10

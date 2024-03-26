@@ -20,7 +20,7 @@ public:
 	Square(void);
 
 	// destructor
-	~Square(void);
+	virtual ~Square(void);
 
 	// accessor
 	float GetSideLength(void) const;
@@ -30,9 +30,9 @@ public:
 
 	// methods
 	void Show(void);
-	float Perimeter(void) const override;
-	float Area(void) const override;
-	float OverallDimension(void) const override;
+	virtual float Perimeter(void) const override;
+	virtual float Area(void) const override;
+	virtual float OverallDimension(void) const override;
 };
 
 #endif _SQUAREH_

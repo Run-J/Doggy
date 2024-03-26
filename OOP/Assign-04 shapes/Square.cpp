@@ -33,7 +33,7 @@ Square::Square(char* colour, float sideLength) : Shape("Square", colour)
 /// \return As this is a constructor for the Square class, nothing is returned
 /// \see ~Square()
 
-Square::Square(void) : sideLength(0.00)
+Square::Square(void) : Shape("Square", "undefined"), sideLength(0.00)
 {
 }
 

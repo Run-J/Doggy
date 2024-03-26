@@ -32,7 +32,7 @@ Circle::Circle(char* colour, float radius) : Shape("Circle", colour)
 /// \return As this is a constructor for the Circle class, nothing is returned
 /// \see ~Circle()
 
-Circle::Circle(void) : radius(0.00)
+Circle::Circle(void) : Shape("Circle", "undefined"), radius(0.00)
 {
 }
 
